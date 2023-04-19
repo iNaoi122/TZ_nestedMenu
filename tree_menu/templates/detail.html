@@ -1,0 +1,12 @@
+<details>
+    <summary>{{list.title}}</summary>
+    {% if list.children %}
+    <ul>
+        {% for child in list.children.all %}
+            {% with list=child template_name="detail.html" %}
+                    {% include template_name %}
+            {% endwith %}
+        {% endfor %}
+    </ul>
+    {% endif %}
+</details>
